@@ -4,14 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoSearch, IoCloseSharp } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import AuthCard from "./AuthCard";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -36,8 +28,8 @@ const Navbar = () => {
               className="px-4 py-2 bg-transparent outline-none w-[120px] md:w-[200px]"
             />
             <IoSearch size={20} />
-          </div>          
-          
+          </div>
+
           {/* Login and Signup buttons hidden on mobile */}
           {/* <button className="bg-[#FF006B] text-white hidden md:block py-2 rounded-md w-[150px]">
             Login
@@ -138,8 +130,9 @@ const Navbar = () => {
 
       {/* Animated Drawer for Mobile Navigation */}
       <div
-        className={`transform transition-transform duration-300 ease-in-out ${menuOpen ? "translate-y-0" : "-translate-y-full"
-          } md:hidden fixed top-16 left-0 right-0 z-40 bg-white shadow-lg p-4`}
+        className={`transform transition-transform duration-300 ease-in-out ${
+          menuOpen ? "translate-y-0" : "-translate-y-full"
+        } md:hidden fixed top-16 left-0 right-0 z-40 bg-white shadow-lg p-4`}
       >
         <div className="flex flex-col space-y-4">
           <Link to="/services" onClick={toggleMenu}>

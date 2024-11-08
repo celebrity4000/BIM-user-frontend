@@ -67,3 +67,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* For Webkit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* Height for horizontal scrollbar */
+  width: 8px; /* Width for vertical scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffe5ee; /* Light pink background */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #ff006b; /* Your primary color */
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #d4005a; /* Slightly darker on hover */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #ff006b #ffe5ee; /* thumb and track color */
+}
