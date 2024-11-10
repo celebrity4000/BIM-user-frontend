@@ -25,7 +25,7 @@ function StudentDashboard() {
     {
       id: 1,
       title: "Class 1",
-      img: "https://i.ytimg.com/an_webp/VqwQpAWRja8/mqdefault_6s.webp?du=3000&sqp=CKjSuLkG&rs=AOn4CLC9--PnbVmDJ6BS-XkN5uaigJdjgg",
+      img: "https://cursa-cat-img.s3.us-east-1.amazonaws.com/en/construction.webp",
       subject: "Maths",
       teacher: "John Doe",
       time: "9:00 AM - 10:00 AM",
@@ -33,7 +33,7 @@ function StudentDashboard() {
     {
       id: 2,
       title: "Class 2",
-      img: "https://i.ytimg.com/an_webp/VqwQpAWRja8/mqdefault_6s.webp?du=3000&sqp=CKjSuLkG&rs=AOn4CLC9--PnbVmDJ6BS-XkN5uaigJdjgg",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvI9z4Lzvv7ri0BBDW8YTJT3jMEeu56FjLuQ&s",
       subject: "Science",
       teacher: "Jane Doe",
       time: "10:00 AM - 11:00 AM",
@@ -41,7 +41,7 @@ function StudentDashboard() {
     {
       id: 3,
       title: "Class 3",
-      img: "https://i.ytimg.com/an_webp/VqwQpAWRja8/mqdefault_6s.webp?du=3000&sqp=CKjSuLkG&rs=AOn4CLC9--PnbVmDJ6BS-XkN5uaigJdjgg",
+      img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-b6OAV9cwNG2f-y-_VTs94MCxma_7rkWS8wb42_Y2quy6MCI7nrvuE_30-kjA3cWm_ZjYLnSHdsyQ-GHjglnAKLfbV66Z-3wUQ-epcuIU-1yd0xwbU1ePeGu_QN2rqGFIaoqjdDi-US4/s1600/construction-courses.jpg",
       subject: "English",
       teacher: "John Doe",
       time: "11:00 AM - 12:00 PM",
@@ -49,7 +49,7 @@ function StudentDashboard() {
     {
       id: 4,
       title: "Class 4",
-      img: "https://i.ytimg.com/an_webp/VqwQpAWRja8/mqdefault_6s.webp?du=3000&sqp=CKjSuLkG&rs=AOn4CLC9--PnbVmDJ6BS-XkN5uaigJdjgg",
+      img: "https://constructioncivilengineering.com/images/free-online-construction-courses.jpg",
       subject: "History",
       teacher: "Jane Doe",
       time: "12:00 PM - 1:00 PM",

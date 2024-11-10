@@ -250,7 +250,7 @@ const YourCourses = () => {
                       alt={course.courseTitle}
                       className="w-full h-48 object-cover p-3 rounded-md"
                     />
-                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium bg-white/90 text-[#FF006B]">
+                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium bg-white text-[#FF006B]">
                       {course.coursePrice}
                     </div>
                   </div>
