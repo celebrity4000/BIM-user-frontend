@@ -23,6 +23,7 @@ import GeneralRoutes from "./utils/GeneralRoutes";
 import LoadingPage from "./components/Loading_Pages/Loading_Page";
 import AllMissedClasses from "./pages/StudentDashboard/AllMissedClasses";
 import Videos from "./pages/StudentDashboard/Videos";
+import YourCourses from "./pages/StudentDashboard/YourCourses";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Videos />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/courses",
+    element: (
+      <ProtectedRoute>
+        <YourCourses />
       </ProtectedRoute>
     ),
   },

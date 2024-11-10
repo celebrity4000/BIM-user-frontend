@@ -18,7 +18,7 @@ const Videos = () => {
       <Navigation />
       <div className="flex">
         <SidebarNavigation />
-        <div className="flex-1 p-8 max-h-screen overflow-y-scroll">
+        <div className="flex-1 p-8 max-h-screen bg-gradient-to-br from-pink-50 to-pink-100 overflow-y-scroll">
           <DynamicBreadcrumb items={breadcrumbItems} />
 
           {/* Video Player */}

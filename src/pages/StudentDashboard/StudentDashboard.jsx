@@ -11,7 +11,7 @@ import Navigation from "@/components/StudentComponents/Navigation/Navigation";
 import SidebarNavigation from "@/components/StudentComponents/Navigation/SidebarNavigation";
 import { Star, Clock } from "lucide-react";
 import GlowingDot from "@/components/GlowingDot";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function StudentDashboard() {
   const breadcrumbItems = [
@@ -206,6 +206,7 @@ function StudentDashboard() {
     },
   ];
 
+  const navigate = useNavigate();
   const renderStars = (rating) => {
     return [...Array(rating)].map((_, index) => (
       <Star key={index} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -217,7 +218,7 @@ function StudentDashboard() {
       <Navigation />
       <div className="flex">
         <SidebarNavigation />
-        <div className="flex-1 p-8 max-h-screen overflow-y-scroll">
+        <div className="flex-1 p-8 max-h-screen bg-gradient-to-br from-pink-50 to-pink-100 overflow-y-scroll">
           <DynamicBreadcrumb items={breadcrumbItems} />
 
           {/* Upcoming Classes Section */}
@@ -357,8 +358,8 @@ function StudentDashboard() {
 
           {/* Missed Classes Section */}
           <div className="mb-8">
-            <div className="flex flex-row">
-              <div>
+            <div className="flex flex-row justify-between w-full">
+              <div className="flex flex-col">
                 <h2 className="text-2xl font-bold mb-4 text-[#FF006B]">
                   Missed Classes
                 </h2>
@@ -366,9 +367,14 @@ function StudentDashboard() {
                   You have missed {classesMissed.length} classes
                 </span>
               </div>
-              <h2 className="text-2xl font-semibold mb-4 text-[#FF006B] ml-auto">
-                <Link to="/student/dashboard/all-missed-classes">view all</Link>
-              </h2>
+              <button
+                onClick={() =>
+                  navigate("/student/dashboard/all-missed-classes")
+                }
+                className="text-[#FF006B] hover:text-pink-700"
+              >
+                View All
+              </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {classesMissed.map((class_) => (
