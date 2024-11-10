@@ -144,7 +144,7 @@ function StudentDashboard() {
     {
       id: 2,
       title: "Class 2",
-      img: "https://i.ytimg.com/an_webp/lOxFVRsx26U/mqdefault_6s.webp?du=3000&sqp=CJDVuLkG&rs=AOn4CLDAxyngCZ1uyBq4agbNcTWnaROTxQ",
+      img: "https://media.licdn.com/dms/image/v2/D4D12AQFUl3rr1KFIyw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1696824483163?e=2147483647&v=beta&t=fwsjQFRDFbkQhBuA2DU1S9jtRGWYm-79L8eZtrvRCUE",
       startingFrom: "15th August 2021",
       subjects: ["Maths", "Science", "English", "History"],
       duration: "1 hour",
