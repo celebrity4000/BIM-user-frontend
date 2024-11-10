@@ -24,6 +24,13 @@ import LoadingPage from "./components/Loading_Pages/Loading_Page";
 import AllMissedClasses from "./pages/StudentDashboard/AllMissedClasses";
 import Videos from "./pages/StudentDashboard/Videos";
 import YourCourses from "./pages/StudentDashboard/YourCourses";
+import YourBatch from "./pages/StudentDashboard/YourBatch";
+import HelpAndSupport from "./pages/StudentDashboard/HelpAndSupport";
+import SettingsPage from "./pages/StudentDashboard/StudentsSettings";
+import CertificatesPage from "./pages/StudentDashboard/Certificates";
+import AnalyticsPage from "./pages/StudentDashboard/AnalyticsPage";
+import InternshipsPage from "./pages/StudentDashboard/InternshipsPage";
+import JobsPage from "./pages/StudentDashboard/JobsPage";
 
 const router = createBrowserRouter([
   {
@@ -119,6 +126,62 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <YourCourses />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/batches",
+    element: (
+      <ProtectedRoute>
+        <YourBatch />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/support",
+    element: (
+      <ProtectedRoute>
+        <HelpAndSupport />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/settings",
+    element: (
+      <ProtectedRoute>
+        <SettingsPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/certificates",
+    element: (
+      <ProtectedRoute>
+        <CertificatesPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/analytics",
+    element: (
+      <ProtectedRoute>
+        <AnalyticsPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/internships",
+    element: (
+      <ProtectedRoute>
+        <InternshipsPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/student/jobs",
+    element: (
+      <ProtectedRoute>
+        <JobsPage />
       </ProtectedRoute>
     ),
   },

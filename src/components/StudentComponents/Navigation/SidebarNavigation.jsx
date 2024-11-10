@@ -14,7 +14,7 @@ import {
   X,
   LayoutDashboard,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navigationItems = [
   {
@@ -22,14 +22,6 @@ const navigationItems = [
     icon: LayoutDashboard,
     noSubItems: true,
     link: "/dashboard",
-  },
-  {
-    title: "Training Section",
-    icon: BookOpen,
-    subItems: [
-      { name: "Training", link: "/training" },
-      { name: "Training Programs", link: "/training-programs" },
-    ],
   },
   {
     title: "Learning and Development",
@@ -80,6 +72,19 @@ const SidebarNavigation = ({ onNavigate = () => {} }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname.replace("/student", "");
+
+  // Function to check if a main item is active
+  const isMainItemActive = (item) => {
+    if (item.noSubItems) {
+      return currentPath === item.link;
+    }
+    return item.subItems.some((subItem) => currentPath === subItem.link);
+  };
+
+  // Function to check if a sub item is active
+  const isSubItemActive = (link) => currentPath === link;
 
   useEffect(() => {
     const checkIsMobile = () => {
@@ -89,10 +94,20 @@ const SidebarNavigation = ({ onNavigate = () => {} }) => {
       }
     };
 
+    // Open the menu of the active item on initial load
+    navigationItems.forEach((item) => {
+      if (
+        !item.noSubItems &&
+        item.subItems.some((subItem) => currentPath === subItem.link)
+      ) {
+        setOpenMenus((prev) => ({ ...prev, [item.title]: true }));
+      }
+    });
+
     checkIsMobile();
     window.addEventListener("resize", checkIsMobile);
     return () => window.removeEventListener("resize", checkIsMobile);
-  }, []);
+  }, [currentPath]);
 
   const toggleSubmenu = (title) => {
     setOpenMenus((prev) => ({
@@ -133,14 +148,19 @@ const SidebarNavigation = ({ onNavigate = () => {} }) => {
                 toggleSubmenu(item.title);
               }
             }}
-            className={`w-full p-4 flex items-center text-gray-700 hover:bg-[#FF006B]/5 
-                     hover:text-[#FF006B] transition-colors ${
-                       openMenus[item.title]
-                         ? "bg-[#FF006B]/5 text-[#FF006B]"
-                         : ""
-                     }`}
+            className={`w-full p-4 flex items-center transition-colors
+              ${
+                isMainItemActive(item)
+                  ? "bg-[#FF006B]/10 text-[#FF006B] font-medium"
+                  : "text-gray-700 hover:bg-[#FF006B]/5 hover:text-[#FF006B]"
+              }
+            `}
           >
-            <item.icon className="h-5 w-5" />
+            <item.icon
+              className={`h-5 w-5 ${
+                isMainItemActive(item) ? "text-[#FF006B]" : ""
+              }`}
+            />
             {(isOpen || isMobile) && (
               <>
                 <span className="ml-3 text-start">{item.title}</span>
@@ -148,7 +168,7 @@ const SidebarNavigation = ({ onNavigate = () => {} }) => {
                   <ChevronDown
                     className={`ml-auto h-4 w-4 transition-transform ${
                       openMenus[item.title] ? "transform rotate-180" : ""
-                    }`}
+                    } ${isMainItemActive(item) ? "text-[#FF006B]" : ""}`}
                   />
                 )}
               </>
@@ -163,8 +183,13 @@ const SidebarNavigation = ({ onNavigate = () => {} }) => {
                   <button
                     key={subIndex}
                     onClick={() => handleNavigation(subItem.link)}
-                    className="w-full p-3 pl-12 text-left text-gray-600 hover:bg-[#FF006B]/5 
-                           hover:text-[#FF006B] transition-colors"
+                    className={`w-full p-3 pl-12 text-left transition-colors
+                      ${
+                        isSubItemActive(subItem.link)
+                          ? "bg-[#FF006B]/10 text-[#FF006B] font-medium"
+                          : "text-gray-600 hover:bg-[#FF006B]/5 hover:text-[#FF006B]"
+                      }
+                    `}
                   >
                     {subItem.name}
                   </button>
