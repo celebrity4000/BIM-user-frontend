@@ -21,6 +21,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AuthService from "@/api/authHandler";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Component() {
   const [open, setOpen] = useState(false);
@@ -38,6 +39,8 @@ export default function Component() {
 
   const { toast } = useToast();
 
+  const navigate = useNavigate();
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsSubmitButtonClicked(true);
@@ -52,6 +55,11 @@ export default function Component() {
         setLoginEmail("");
         setLoginPassword("");
         setLoginUserType("");
+        if (loginUserType === "student") {
+          navigate("/student/dashboard");
+        } else if (loginUserType === "faculty") {
+          navigate("/teacher/dashboard");
+        }
       }
 
       toast({

@@ -31,6 +31,12 @@ import CertificatesPage from "./pages/StudentDashboard/Certificates";
 import AnalyticsPage from "./pages/StudentDashboard/AnalyticsPage";
 import InternshipsPage from "./pages/StudentDashboard/InternshipsPage";
 import JobsPage from "./pages/StudentDashboard/JobsPage";
+import TeacherDashboard from "./pages/TeacherDashBoard/TeacherDashboard";
+import ProtectedTeacherRoute from "./utils/ProtectedTeacherRoute";
+import ScheduleClass from "./pages/TeacherDashBoard/ScheduleClass";
+import { ClassProvider } from "./components/TeachersComponents/ScheduleClass/ClassContext";
+import ManageCourse from "./pages/TeacherDashBoard/ManageCourse";
+import CreateCourse from "./pages/TeacherDashBoard/CreateCourse";
 
 const router = createBrowserRouter([
   {
@@ -183,6 +189,40 @@ const router = createBrowserRouter([
       <ProtectedRoute>
         <JobsPage />
       </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/teacher/dashboard",
+    element: (
+      <ProtectedTeacherRoute>
+        <TeacherDashboard />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/schedule",
+    element: (
+      <ProtectedTeacherRoute>
+        <ClassProvider>
+          <ScheduleClass />
+        </ClassProvider>
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/manage-courses",
+    element: (
+      <ProtectedTeacherRoute>
+        <ManageCourse />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/create-course",
+    element: (
+      <ProtectedTeacherRoute>
+        <CreateCourse />
+      </ProtectedTeacherRoute>
     ),
   },
 ]);

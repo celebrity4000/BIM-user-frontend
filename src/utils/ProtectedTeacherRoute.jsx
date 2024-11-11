@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import AuthService from "../api/authHandler";
 import LoadingPage from "@/components/Loading_Pages/Loading_Page";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedTeacherRoute = ({ children }) => {
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [guestUser, setGuestUser] = useState(false);
@@ -17,8 +17,8 @@ const ProtectedRoute = ({ children }) => {
         const response = await AuthService.validateUserSession();
         // console.log(response);
         if (response.message === "Session Validated") {
-          if (response.userType === "student") setIsAuthenticated(true);
-          else if (response.userType === "trainer") setIsAuthenticated(false);
+          if (response.userType === "trainer") setIsAuthenticated(true);
+          else if (response.userType === "student") setIsAuthenticated(false);
         } else {
           setIsAuthenticated(false);
         }
@@ -38,11 +38,10 @@ const ProtectedRoute = ({ children }) => {
   }
 
   if (guestUser || !isAuthenticated) {
-    console.log("Redirecting to /");
     return <Navigate to="/" state={{ from: location }} replace />;
   }
 
   return children;
 };
 
-export default ProtectedRoute;
+export default ProtectedTeacherRoute;

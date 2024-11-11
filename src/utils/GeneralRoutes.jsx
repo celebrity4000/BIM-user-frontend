@@ -37,7 +37,9 @@ const GeneralRoutes = ({ children }) => {
         <Navigate to="/student/dashboard" state={{ from: location }} replace />
       );
     } else if (userType === "trainer") {
-      return <Navigate to="/teacher" state={{ from: location }} replace />;
+      return (
+        <Navigate to="/teacher/dashboard" state={{ from: location }} replace />
+      );
     }
   }
 
