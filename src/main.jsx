@@ -37,6 +37,12 @@ import ScheduleClass from "./pages/TeacherDashBoard/ScheduleClass";
 import { ClassProvider } from "./components/TeachersComponents/ScheduleClass/ClassContext";
 import ManageCourse from "./pages/TeacherDashBoard/ManageCourse";
 import CreateCourse from "./pages/TeacherDashBoard/CreateCourse";
+import CreateBatch from "./pages/TeacherDashBoard/CreateBatch";
+import ManageBatches from "./pages/TeacherDashBoard/ManageBatches";
+import Settings from "./pages/TeacherDashBoard/Settings";
+import Support from "./pages/TeacherDashBoard/Support";
+import LiveClass from "./pages/TeacherDashBoard/LiveClass";
+import ManageSingleCourse from "./pages/TeacherDashBoard/ManageSingleCourse";
 
 const router = createBrowserRouter([
   {
@@ -222,6 +228,54 @@ const router = createBrowserRouter([
     element: (
       <ProtectedTeacherRoute>
         <CreateCourse />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/create-batch",
+    element: (
+      <ProtectedTeacherRoute>
+        <CreateBatch />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/manage-batches",
+    element: (
+      <ProtectedTeacherRoute>
+        <ManageBatches />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/settings",
+    element: (
+      <ProtectedTeacherRoute>
+        <Settings />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/support",
+    element: (
+      <ProtectedTeacherRoute>
+        <Support />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/schedule/:id",
+    element: (
+      <ProtectedTeacherRoute>
+        <LiveClass />
+      </ProtectedTeacherRoute>
+    ),
+  },
+  {
+    path: "/teacher/manage-course/:id",
+    element: (
+      <ProtectedTeacherRoute>
+        <ManageSingleCourse />
       </ProtectedTeacherRoute>
     ),
   },

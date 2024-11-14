@@ -157,7 +157,7 @@ export default function Component() {
             <TabsContent value="login">
               <form onSubmit={handleLogin} className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="loginEmail" className="text-right">
+                  <Label htmlFor="loginEmail" className="text-center">
                     Email
                   </Label>
                   <Input
@@ -165,12 +165,12 @@ export default function Component() {
                     type="email"
                     value={loginEmail}
                     onChange={(e) => setLoginEmail(e.target.value)}
-                    className="col-span-3"
+                    className="col-span-3 border border-gray-600 rounded-md p-2"
                     required
                   />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="loginPassword" className="text-right">
+                  <Label htmlFor="loginPassword" className="text-center">
                     Password
                   </Label>
                   <Input
@@ -178,20 +178,21 @@ export default function Component() {
                     type="password"
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
-                    className="col-span-3"
+                    className="col-span-3 border border-gray-600 rounded-md p-2"
                     required
                   />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="loginUserType" className="text-right">
+                  <Label htmlFor="loginUserType" className="text-center">
                     User Type
                   </Label>
                   <Select
                     value={loginUserType}
+                    className="col-span-3 border border-gray-600 rounded-md p-2"
                     onValueChange={(value) => setLoginUserType(value)}
                     required
                   >
-                    <SelectTrigger className="col-span-3">
+                    <SelectTrigger className="col-span-3 border-gray-600">
                       <SelectValue placeholder="Select user type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -219,7 +220,7 @@ export default function Component() {
             <TabsContent value="signup">
               <form onSubmit={handleSignup} className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="signupName" className="text-right">
+                  <Label htmlFor="signupName" className="text-center">
                     Name
                   </Label>
                   <Input
@@ -227,12 +228,12 @@ export default function Component() {
                     type="text"
                     value={signupName}
                     onChange={(e) => setSignupName(e.target.value)}
-                    className="col-span-3"
+                    className="col-span-3 border border-gray-600 rounded-md p-2"
                     required
                   />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="signupEmail" className="text-right">
+                  <Label htmlFor="signupEmail" className="text-center">
                     Email
                   </Label>
                   <Input
@@ -240,12 +241,12 @@ export default function Component() {
                     type="email"
                     value={signupEmail}
                     onChange={(e) => setSignupEmail(e.target.value)}
-                    className="col-span-3"
+                    className="col-span-3 border border-gray-600 rounded-md p-2"
                     required
                   />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="signupPassword" className="text-right">
+                  <Label htmlFor="signupPassword" className="text-center">
                     Password
                   </Label>
                   <Input
@@ -253,12 +254,12 @@ export default function Component() {
                     type="password"
                     value={signupPassword}
                     onChange={(e) => setSignupPassword(e.target.value)}
-                    className="col-span-3"
+                    className="col-span-3 border border-gray-600 rounded-md p-2"
                     required
                   />
                 </div>
                 {/* <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="signupUserType" className="text-right">
+                  <Label htmlFor="signupUserType" className="text-center">
                     Course
                   </Label>
                   <Select
@@ -276,7 +277,7 @@ export default function Component() {
                   </Select>
                 </div> */}
                 <div className="grid grid-cols-4 items-center gap-4">
-                  <Label htmlFor="signupUserType" className="text-right">
+                  <Label htmlFor="signupUserType" className="text-center">
                     User Type
                   </Label>
                   <Select
@@ -284,7 +285,7 @@ export default function Component() {
                     onValueChange={(value) => setSignupUserType(value)}
                     required
                   >
-                    <SelectTrigger className="col-span-3">
+                    <SelectTrigger className="col-span-3 border border-gray-600">
                       <SelectValue placeholder="Select user type" />
                     </SelectTrigger>
                     <SelectContent>

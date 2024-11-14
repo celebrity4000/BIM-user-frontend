@@ -63,21 +63,22 @@ const yourPendingTasks = [
   {
     task: "Upload Assignment 1",
     due: "Due in 2 days",
-    link: "/teacher/assignment/1",
+    link: "/teacher/manage-course/1",
   },
   {
     task: "Upload Assignment 2",
     due: "Due in 5 days",
-    link: "/teacher/assignment/2",
+    link: "/teacher/manage-course/2",
   },
   {
     task: "Upload Assignment 3",
     due: "Due in 7 days",
-    link: "/teacher/assignment/3",
+    link: "/teacher/manage-course/3",
   },
   {
     task: "Upload the Test 1",
     due: "Due in 10 days",
+    link: "/teacher/manage-course/4",
   },
 ];
 
@@ -192,6 +193,7 @@ function TeacherDashboard() {
                 <Link
                   to={schedule.link}
                   key={index}
+                  state={{ schedule: schedule }}
                   className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <div>

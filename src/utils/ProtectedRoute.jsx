@@ -9,7 +9,6 @@ const ProtectedRoute = ({ children }) => {
   const [guestUser, setGuestUser] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log("ProtectedRoute");
   useEffect(() => {
     const validateSession = async () => {
       setIsLoading(true);

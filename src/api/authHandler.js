@@ -45,6 +45,10 @@ class AuthService {
     try {
       let response;
 
+      if (!userType) {
+        throw new Error("Please select a user type");
+      }
+
       if (userType === "student") {
         response = await this.axiosInstance.post("/studentSignIn", {
           email,
@@ -72,12 +76,16 @@ class AuthService {
           Authorization: `Bearer ${Cookies.get("token")}`,
         },
       });
-      // console.log(response);
       return response.data;
     } catch (error) {
       // console.log(error.response);
       throw error.response;
     }
+  }
+
+  // Logout method
+  logout() {
+    Cookies.remove("token");
   }
 }
 

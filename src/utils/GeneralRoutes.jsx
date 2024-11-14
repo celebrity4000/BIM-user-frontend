@@ -10,10 +10,10 @@ const GeneralRoutes = ({ children }) => {
   const [userType, setUserType] = useState(null);
 
   useEffect(() => {
-    console.log("ProtectedRoute useEffect");
     const validateSession = async () => {
       try {
         const response = await AuthService.validateUserSession();
+        console.log(response);
         if (response.message == "Session Validated") {
           setIsAuthenticated(true);
           setUserType(response.userType);

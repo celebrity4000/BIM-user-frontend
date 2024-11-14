@@ -11,15 +11,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import AuthService from "@/api/authHandler";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   return (
     <nav className="border-b border-[#FF006B]/10">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
-          <div className="flex-shrink-0">
+          <div className="flex flex-row items-center gap-1">
             <img src={logo} alt="Logo" className="h-10 w-auto" />
+            <h1 className="text-xl font-semibold bg-gradient-to-r from-blue-500 to-pink-600 bg-clip-text text-transparent hover:opacity-80 transition-opacity">
+              Student's Dashboard
+            </h1>
           </div>
 
           {/* Desktop Menu */}
@@ -56,7 +62,13 @@ const Navigation = () => {
                   <span>Billing</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#FF006B]/10" />
-                <DropdownMenuItem className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5">
+                <DropdownMenuItem
+                  onClick={() => {
+                    AuthService.logout();
+                    navigate("/");
+                  }}
+                  className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5"
+                >
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>
@@ -96,7 +108,13 @@ const Navigation = () => {
                   <span>Billing</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#FF006B]/10" />
-                <DropdownMenuItem className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5">
+                <DropdownMenuItem
+                  onClick={() => {
+                    AuthService.logout();
+                    navigate("/");
+                  }}
+                  className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5"
+                >
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>

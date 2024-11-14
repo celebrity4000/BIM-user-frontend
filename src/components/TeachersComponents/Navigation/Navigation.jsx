@@ -11,8 +11,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import AuthService from "@/api/authHandler";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  const navigate = useNavigate();
   return (
     <nav className="border-b border-[#FF006B]/10">
       <div className=" mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,7 +62,13 @@ const Navigation = () => {
                   <span>Billing</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#FF006B]/10" />
-                <DropdownMenuItem className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5">
+                <DropdownMenuItem
+                  onClick={() => {
+                    AuthService.logout();
+                    navigate("/");
+                  }}
+                  className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5"
+                >
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>
@@ -99,7 +108,13 @@ const Navigation = () => {
                   <span>Billing</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator className="bg-[#FF006B]/10" />
-                <DropdownMenuItem className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5">
+                <DropdownMenuItem
+                  onClick={() => {
+                    AuthService.logout();
+                    navigate("/");
+                  }}
+                  className="cursor-pointer text-[#FF006B] hover:bg-[#FF006B]/5 focus:bg-[#FF006B]/5"
+                >
                   <LogOut className="mr-2 h-4 w-4" />
                   <span>Log out</span>
                 </DropdownMenuItem>
